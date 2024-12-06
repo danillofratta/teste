@@ -6,11 +6,11 @@ namespace Projeto.Tests;
 public class CalcTest
 {
     [TestMethod]
-    public void Testar()
+    public void EfetuarTeste()
     {
         int teste = 10;
         int total = teste.Calcular();
         Console.WriteLine(total);
-        //Assert.AreEqual(20);
+        Assert.AreEqual(20, total);
     }
 }

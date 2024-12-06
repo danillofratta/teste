@@ -1,0 +1,27 @@
+name: Build and deploy package
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@main
+
+    - name: Set up .NET core
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Build with donet
+      run: dotnet build --configuration Release
+
+    - name: Test
+      run: dotnet test
+
+    - nane: Create the Package
+      run: dotnet pack --configuration Release
